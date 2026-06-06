@@ -39,7 +39,7 @@ if st.button("Analyze Churn Risk"):
     df_input = pd.get_dummies(df_input)
     df_input = df_input.reindex(columns=bank_columns, fill_value=0)
     prediction = model.predict(df_input)[0]
-    if prediction["will_churn"] == 1:
+    if prediction == 1:
         st.error("HIGH RISK: This customer is highly likely to close their account!")
     else:
         st.success("LOW RISK: This customer is stable and likely to stay.")
