@@ -34,7 +34,8 @@ if st.button("Analyze Churn Risk"):
         "credit_card": 1,
         "cidade": "Lisbon"
     }
-    df_input = pd.DataFrame([input_dict])
+
+    df_input = pd.DataFrame([payload])
     df_input = pd.get_dummies(df_input)
     df_input = df_input.reindex(columns=bank_columns, fill_value=0)
     prediction = model.predict(df_input)[0]
